@@ -7,7 +7,7 @@
 # URL:      https://blazeshosting.com
 
 echo -n "Blocking public trackers ... "
-wget -q -O/etc/trackers https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/trackers?token=ABGJY2W7H5BMVSPSF3U4NXDAUR7BQ
+wget -q -O/etc/trackers https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/trackers
 cat >/etc/cron.daily/denypublic<<'EOF'
 IFS=$'\n'
 L=$(/usr/bin/sort /etc/trackers | /usr/bin/uniq)
@@ -21,6 +21,6 @@ for fn in $L; do
 done
 EOF
 chmod +x /etc/cron.daily/denypublic
-curl -s -LO https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/hostsTrackers?token=ABGJY2UG4ELEB6HXN25FXN3AUR62O
+curl -s -LO https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/hostsTrackers
 cat hostsTrackers >> /etc/hosts
 echo "${OK}"
