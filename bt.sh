@@ -1,13 +1,11 @@
 #!/bin/bash
 #
-# [For Blazeshosting Seedbox]
-#
-# GitHub:   https://github.com/mrlongshen/blockpublictorrent-iptables
-# Author:   mrlongshen
-# URL:      https://blazeshosting.com
+# Credit to original author: mrlongshen https://github.com/mrlongshen/blockpublictorrent-iptables
+# GitHub:   https://github.com/Heclalava/blockpublictorrent-iptables
+# Author:   Heclalava
 
 echo -n "Blocking public trackers ... "
-wget -q -O/etc/trackers https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/trackers
+wget -q -O/etc/trackers https://github.com/Heclalava/blockpublictorrent-iptables/raw/main/trackers
 cat >/etc/cron.daily/denypublic<<'EOF'
 IFS=$'\n'
 L=$(/usr/bin/sort /etc/trackers | /usr/bin/uniq)
@@ -21,6 +19,6 @@ for fn in $L; do
 done
 EOF
 chmod +x /etc/cron.daily/denypublic
-curl -s -LO https://raw.githubusercontent.com/mrlongshen/blockpublictorrent-iptables/main/hostsTrackers
+curl -s -LO https://github.com/Heclalava/blockpublictorrent-iptables/raw/main/hostsTrackers
 cat hostsTrackers >> /etc/hosts
 echo "${OK}"
