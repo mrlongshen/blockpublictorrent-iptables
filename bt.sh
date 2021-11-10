@@ -21,5 +21,5 @@ EOF
 chmod +x /etc/cron.daily/denypublic
 curl -s -LO https://raw.githubusercontent.com/Heclalava/blockpublictorrent-iptables/main/hostsTrackers
 cat hostsTrackers >> /etc/hosts
-sort /etc/hosts | uniq > /etc/hosts.uniq && mv /etc/hosts{.uniq,}
+sort -uf /etc/hosts > /etc/hosts.uniq && mv /etc/hosts{.uniq,}
 echo "${OK}"
