@@ -2,4 +2,4 @@ Forked this from mrlongshen/blockpublictorrent-iptables in order to better maint
 
 Install
 
-wget https://github.com/Heclalava/blockpublictorrent-iptables/raw/main/bt.sh && chmod +x bt.sh && bash bt.sh
+```wget https://github.com/Heclalava/blockpublictorrent-iptables/raw/main/bt.sh && chmod +x bt.sh && bash bt.sh```
